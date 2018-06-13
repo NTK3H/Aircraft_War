@@ -5,7 +5,7 @@
 #define MAX_X	60
 #define MAX_Y	20
 
-#define LIFE	5
+#define LIFE	6
 #define BULLET	100
 
 typedef struct _aircraft_information{
@@ -90,16 +90,16 @@ aci *aci_init()
 {
 	aci *paci = (aci*)malloc(sizeof(aci));
 	paci->score = 0;
-	paci->speed = 5;		//ÕûÌåËÙ¶È
-	paci->bpspeed = 2;		//µĞ»úËÙ¶È
-	paci->life = LIFE;		//ÉúÃüÖµ
-	paci->bullet = BULLET;	//×Óµ¯Êı
-	paci->hep.x = 30;		//ÆğÊ¼Î»ÖÃ
+	paci->speed = 5;		//æ•´ä½“é€Ÿåº¦
+	paci->bpspeed = 2;		//æ•Œæœºé€Ÿåº¦
+	paci->life = LIFE;		//ç”Ÿå‘½å€¼
+	paci->bullet = BULLET;	//å­å¼¹æ•°
+	paci->hep.x = 30;		//èµ·å§‹ä½ç½®
 	paci->hep.y = 15;
 	return paci;
 }
 
-//³õÊ¼»¯µØÍ¼
+//åˆå§‹åŒ–åœ°å›¾
 int map_init()
 {
 	for(int i=0;i<MAX_Y+2;i++)
@@ -108,19 +108,19 @@ int map_init()
 		{
 			if(i==0)
 			{
-				if(j==0)printf("©°");
-				else if(j==MAX_X/2+1)printf("©´");
-				else printf("©¤");
+				if(j==0)printf("â”Œ");
+				else if(j==MAX_X/2+1)printf("â”");
+				else printf("â”€");
 			}
 			else if(i==MAX_Y+1)
 			{
-				if(j==0)printf("©¸");
-				else if(j==MAX_X/2+1)printf("©¼");
-				else printf("©¤");
+				if(j==0)printf("â””");
+				else if(j==MAX_X/2+1)printf("â”˜");
+				else printf("â”€");
 			}
 			else
 			{
-				if(j==0 || j==MAX_X/2+1)printf("©¦");
+				if(j==0 || j==MAX_X/2+1)printf("â”‚");
 				else printf("  ");
 			}
 		}
@@ -144,12 +144,12 @@ void refresh_score(aci *aci)
 void refresh_life(aci *aci)
 {
 	gotoxy(MAX_X+3,7);
-	printf("Life:");
+	printf("HP:");
 	for(int i=0;i<LIFE;i++)
 		printf("  ");
 	gotoxy(MAX_X+8,7);
 	for(int i=0;i<aci->life;i++)
-		printf("¡ö");
+		printf("â– ");
 }
 
 int reloadflag;
