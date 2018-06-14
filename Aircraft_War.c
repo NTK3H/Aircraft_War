@@ -93,7 +93,7 @@ aci *aci_init()
 	paci->speed = 5;		//整体速度
 	paci->bpspeed = 2;		//敌机速度
 	paci->life = LIFE;		//生命值
-	paci->bullet = BULLET;	//子弹数
+	paci->bullet = BULLET;		//子弹数
 	paci->hep.x = 30;		//起始位置
 	paci->hep.y = 15;
 	return paci;
